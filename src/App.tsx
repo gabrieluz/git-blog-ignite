@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Stack } from "@mui/material";
 
-function App() {
-  const [count, setCount] = useState(0)
+import UserContent from "./components/UserContent";
+import Search from "./components/Search";
+import GitHubIssues from "./components/GitHubIssues";
+import HeaderCover from "./components/HeaderCover";
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export default function App() {
+	return (
+		<Stack
+			sx={{
+				width: "100%",
+				alignItems: "center",
+				backgroundColor: "#040F1A",
+			}}
+		>
+			<HeaderCover />
+			<Stack
+				sx={{
+					width: "70%",
+					alignItems: "center",
+					backgroundColor: "#071422",
+				}}
+			>
+				<Stack
+					sx={{
+						width: "calc(832px + 2rem)",
+					}}
+				>
+					<UserContent />
+					<Stack gap="2rem">
+						<Search />
+						<GitHubIssues />
+					</Stack>
+				</Stack>
+			</Stack>
+		</Stack>
+	);
 }
-
-export default App
